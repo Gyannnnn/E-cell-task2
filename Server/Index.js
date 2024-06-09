@@ -6,7 +6,7 @@ const todoModel = require('./models/Todo');
 const app = express();
 
 app.use(cors({
-    origin: ["https://e-cell-task2-frontend.vercel.app/"],
+    origin: ["https://e-cell-task2-frontend.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
