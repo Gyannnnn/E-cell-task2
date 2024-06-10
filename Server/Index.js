@@ -6,15 +6,14 @@ const todoModel = require('./models/Todo');
 const app = express();
 
 app.use(cors({
-    origin: "https://e-cell-task2-frontend.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: ["https://e-cell-task2-frontend.vercel.app"],
+    methods: ["POST", "GET", "DELETE"],
+    credentials: true
 }));
 
 app.use(express.json());
 
-mongoose.connect('your_mongodb_connection_string', {
+mongoose.connect('mongodb+srv://higyanaranjanpatra:gyan@mongodb1@cluster0.b6xliqj.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
