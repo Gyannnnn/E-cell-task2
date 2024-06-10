@@ -6,14 +6,15 @@ const todoModel = require('./models/Todo');
 const app = express();
 
 app.use(cors({
-    origin: ["https://e-cell-task2-frontend.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
+    origin: "https://e-cell-task2-frontend.vercel.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://higyanaranjanpatra:gyan@mongodb1@cluster0.b6xliqj.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('your_mongodb_connection_string', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -52,6 +53,7 @@ app.post('/add', async (req, res) => {
     }
 });
 
-app.listen(3001, () => {
-    console.log("Server is running on port 3001");
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
